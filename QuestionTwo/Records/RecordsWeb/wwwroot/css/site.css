@@ -1,0 +1,9 @@
+.side-menu {
+    width: 400px;
+    height: 100vh;
+}
+
+.pointer {
+    text-decoration: none;
+    cursor: pointer;
+}

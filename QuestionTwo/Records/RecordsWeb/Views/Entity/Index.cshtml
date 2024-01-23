@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Record>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+    <div class="row pt-4 mb-5 text-center">
+            <h2 class="text-primary">Records List</h2>
+    </div>
+
+    <table class="table table-dark table-bordered table-striped text-light" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    First Name
+                </th>
+                <th>
+                    Last Name
+                </th>
+                <th>
+                    Age
+                </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var record in Model)
+            {
+                <tr>
+                    <td>
+                        @record.FirstName
+                    </td>
+                    <td>
+                        @record.LastName
+                    </td>
+                    <td>
+                        @{
+                            var age = DateTime.Now.Year - record.BirthDate.Year;
+                            @age
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <a asp-controller="Home" asp-action="LinkEntity" class="btn btn-primary rounded px-2 fs-6 w-50">
+        Back To Entity Menu
+    </a>
+</div>
